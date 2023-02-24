@@ -6,81 +6,49 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/02/24 16:10:11 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:53:29 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_stack_node(int value)
+
+void	ft_put(t_stack **src, t_stack **dst)
 {
-	// it's work don't touch it.
-	t_stack *buffer;
-
-	buffer = malloc(sizeof(t_stack));
-	buffer->value = value;
-	buffer->lower = NULL;
-
-	return (buffer);
+	stack_add(dst, stack_pop(src));
 }
 
-void		stack_add(t_stack **head_stack, t_stack *new_node)
+void	ft_swap(t_stack **struct)
 {
-	if (!*head_stack)
-		*head_stack = new_node;
-	else
-	{
-		new_node->lower = *head_stack;
-		*head_stack = new_node;	
-// 		head_stack = &new_node; 
-//		how the fuck is last 2 line are different bruh
-	}
-	
-}
+	t_stack *first;
+	t_stack *second;
 
-void		stack_pop(t_stack **stack)
-{
+
 
 }
 
+void	ft_rotate(t_stack **struct)
 
-
-
-// void		free_stack
-
-
-
-
-
-void    init_stack(t_stack **stack, char **av)
-{
-	int	i;
-
-	i = 1;
-	while (av[i])
-	{
-		stack_add(stack, new_stack_node(ft_atoi(av[i])));
-		i++;
-	}
-}
-
+void	ft_rev_rotate(t_stack **struct)
 
 int main(int ac, char **av)
 {
     t_stack *stack_a;
-	t_stack *curr;
+    t_stack *stack_b;
 
 	stack_a = NULL;
-
+	stack_b = NULL;
 	init_stack(&stack_a, av);
 
-	curr = stack_a;
-	while (curr->lower != NULL)
-	{
-		ft_printf("Value of the node is %d | current address is %p | its lower node is %p\n",curr->value, curr, curr->lower);
-		curr = curr->lower ;
-	}
-	ft_printf("Value of the node is %d | current address is %p | its lower node is %p\n",curr->value, curr, curr->lower);
+	display_stack(stack_a);
+	ft_printf("-\n");
+	display_stack(stack_b);
+	ft_put(&stack_a,&stack_b);
+	ft_printf("---------------------------------------------------------------------------\n");
+	display_stack(stack_a);
+	ft_printf("-\n");
+	display_stack(stack_b);
+
 
     return (0);
 }
