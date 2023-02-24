@@ -6,7 +6,7 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 12:05:02 by ktunchar          #+#    #+#              #
-#    Updated: 2023/02/24 16:58:20 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/02/24 19:54:40 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 SRC = push_swap.c stack_utils.c
 LIB_FLAG = -Llibs -lft -lftprintf
 
-INT_STACK = 2 3 5 1 6 8
+INT_STACK = 2 1 4 3
 
 all : compile execute
 
