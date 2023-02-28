@@ -6,7 +6,7 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 12:05:02 by ktunchar          #+#    #+#              #
-#    Updated: 2023/02/28 22:05:46 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/02/28 23:32:03 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ FLAGS = -Wall -Werror -Wextra -g
 
 LIBS_FLAG = -LLibs -lft -lftprintf 
 
-SRCS = push_swap.c stack.c
+SRCS = push_swap.c stack.c algo_temp_stack.c intruction.c
 
 OBJS = $(SRCS:.c=.o)
 
-ARG = 5 1 3 2 6
+ARG = 5 1 3 2 6 
 
 all: $(NAME) run
 

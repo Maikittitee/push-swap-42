@@ -6,15 +6,46 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:55:02 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/02/28 22:10:02 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/01 01:34:01 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		peek(t_stack **stack)
+int	is_sort(t_stack *stack)
 {
-	return ((*stack)->value);	
+	int prev;
+
+	prev = stack->value;
+	stack = stack->lower;
+	while (stack)
+	{
+		//ft_printf("hello this: %d | prev: %d\n", stack->value, prev);
+		if (stack->value < prev)
+			return (0);
+		prev = stack->value;
+		stack = stack->lower;
+	}
+	return (1);
+}
+
+int		stack_peek(t_stack *stack)
+{
+	if (!stack)
+		return (0);
+	return ((stack)->value);	
+}
+
+int	get_lower(t_stack *stack)
+{
+	t_stack *curr;
+	
+	if (!stack)
+		return (0);
+	curr = (stack)->lower;
+	if (!curr)
+		return (0);
+	return (curr->value);
 }
 
 t_stack	*new_stack_node(int value)
@@ -48,7 +79,6 @@ t_stack		*stack_pop(t_stack **head_stack)
 	t_stack *temp;
 
 	temp = *head_stack;
-
 	*head_stack = (*head_stack)->lower;
 	temp->lower = NULL;
 
