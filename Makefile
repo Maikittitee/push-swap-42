@@ -6,33 +6,41 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 12:05:02 by ktunchar          #+#    #+#              #
-#    Updated: 2023/02/24 19:54:40 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/02/28 22:05:46 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-SRC = push_swap.c stack_utils.c
-LIB_FLAG = -Llibs -lft -lftprintf
 
-INT_STACK = 2 1 4 3
+CC = gcc
 
-all : compile execute
+FLAGS = -Wall -Werror -Wextra -g
 
-test: nfcompile execute
+LIBS_FLAG = -LLibs -lft -lftprintf 
 
-compile:
-	gcc -Wall -Werror -Wextra -g $(SRC) -o push_swap $(LIB_FLAG)
+SRCS = push_swap.c stack.c
 
-execute:
-	./push_swap $(INT_STACK)
+OBJS = $(SRCS:.c=.o)
 
-stack:
-	echo $(INT_STACK)
+ARG = 5 1 3 2 6
 
-nfcompile :
-	gcc -g $(SRC) -o push_swap $(LIB_FLAG)
+all: $(NAME) run
 
-fclean :
+%.o:%.c
+	$(CC) -c $< -o $@
+
+$(NAME): $(OBJS)
+	$(CC) $(LIBS_FLAG) $(OBJS) -o $(NAME)
+
+clean:
+	rm -rf $(OBJS)
+
+fclean: clean
 	rm -rf $(NAME)
 
-re : fclean compile
+re: fclean all
+
+run:
+	./push_swap $(ARG)
+
+.PHONY: clean fclean all re

@@ -22,3 +22,5 @@ Radix sort
 1: 00000100
 
 00000001 00000010 00000011 00000100 ==> done sort
+
+choice : radix sort, quick sort
