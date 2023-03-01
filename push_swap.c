@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/01 18:07:17 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/01 23:10:30 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,44 @@ void	put_index(t_stack *stack)
 		stack = stack->lower;
 	}
 }
-// int	radix_sort(t_stack **a, t_stack **b)
-// {
-// 
-// }
+
+int	radix_sort(t_stack **a, t_stack **b)
+{
+	int	count;
+	unsigned char bit;
+	int	size_a;
+	int	size_b;
+	int	i;
+	int	boo;
+
+	bit = 1;
+	i = 3;
+	int	sort_check = is_sort(*a);
+	while (!sort_check)
+	{
+		size_a = stack_size(*a);
+		while (size_a)
+		{
+			boo = (*a)->index & bit;
+			if (boo)
+				count += ft_rotate(a);
+			else
+				count += ft_push(a, b);
+			size_a--;
+		}
+		size_b = stack_size(*b);
+		while (size_b)
+		{
+			count += ft_push(b, a);
+			size_b--;
+		}
+		i--;	
+		bit *= 2;
+		sort_check = is_sort(*a);
+		ft_printf("Now count is: %d\n",count);
+	}
+	return (count);
+}
 
 int main(int ac, char **av)
 {
@@ -109,29 +143,15 @@ int main(int ac, char **av)
 	stack_b = NULL;
 	init_stack(&stack_a, av);
 	put_index(stack_a);
-	ft_printf("Stack size: %d\n",stack_size(stack_a));
-	// int	arr[4];
-	// arr[0] = 4;
-	// arr[1] = 5;
-	// arr[2] = 1;
-	// arr[3] = 2;
-
-	// sort_int_tab(arr,4);
-	// ft_printf("\narr: %d\n",arr[0]);
-	// ft_printf("arr: %d\n",arr[1]);
-	// ft_printf("arr: %d\n",arr[2]);
-	// ft_printf("arr: %d\n",arr[3]);
-
-
 	display_stack(stack_a);
-	// ft_printf("peek of A is: %d\n", peek(stack_a));
-	// ft_printf("is stack sort? : %d\n", is_sort(stack_a));
-//	ft_printf("-----------------------A------------------\n");
-	// //count_intruction = inserting_sort(&stack_a, &stack_b);
-	// count_intruction = radix_sort(&stack_a, &stack_b);
-	// display_stack(stack_a);
-	// ft_printf("-------------------B--------------------------\n");
-	// display_stack(stack_b);
-	// ft_printf("Summary intruction is %d\n",count_intruction);
+	ft_printf("Stack size: %d\n",stack_size(stack_a));
+	ft_printf("is stack sort? : %d\n", is_sort(stack_a));
+	count_intruction = radix_sort(&stack_a, &stack_b);
+	ft_printf("-----After Sort---------\n");
+	ft_printf("----A----\n");
+	display_stack(stack_a);
+	ft_printf("----B----\n");
+	display_stack(stack_b);
+	ft_printf("Summary intruction is %d\n",count_intruction);
     return (0);
 }
