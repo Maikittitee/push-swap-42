@@ -6,7 +6,7 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 12:05:02 by ktunchar          #+#    #+#              #
-#    Updated: 2023/03/01 15:41:38 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/03/01 17:18:19 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = push_swap.c ps_stack.c ps_intruction.c
 
 OBJS = $(SRCS:.c=.o)
 
-ARG = 5 1 3 2 6 
+ARG = 5 4 2 1 3 
 
 all: $(NAME) run
 

@@ -6,11 +6,18 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:55:02 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/01 14:47:08 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:52:20 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_empty(t_stack **stack)
+{
+	if (!*stack)
+		return (1);
+	return (0);
+}
 
 int	is_sort(t_stack *stack)
 {
@@ -20,7 +27,6 @@ int	is_sort(t_stack *stack)
 	stack = stack->lower;
 	while (stack)
 	{
-		//ft_printf("hello this: %d | prev: %d\n", stack->value, prev);
 		if (stack->value < prev)
 			return (0);
 		prev = stack->value;
@@ -97,10 +103,12 @@ int		display_stack(t_stack *stack)
 	}
 	while (stack->lower != NULL)
 	{
-		ft_printf("Value of the node is %d | current address is %p | its lower node is %p\n",stack->value, stack, stack->lower);
+		//ft_printf("Value of the node is %d | current address is %p | its lower node is %p\n",stack->value, stack, stack->lower);
+		ft_printf("Index: %d | Value: %d\n",stack->index, stack->value);
 		stack = stack->lower ;
 		i++;
 	}
-	ft_printf("Value of the node is %d | current address is %p | its lower node is %p\n",stack->value, stack, stack->lower);
+	// ft_printf("Value of the node is %d | current address is %p | its lower node is %p\n",stack->value, stack, stack->lower);
+	ft_printf("Index: %d | Value: %d\n",stack->index, stack->value);
 	return (i);
 }
