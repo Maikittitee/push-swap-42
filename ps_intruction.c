@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intruction.c                                       :+:      :+:    :+:   */
+/*   ps_intruction.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:31:18 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/02/28 22:06:12 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:46:41 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,8 @@ void	ft_swap(t_stack **stack)
 
 	first = *stack;
 	second = (*stack)->lower;
-
-
 	first->lower = second->lower;
 	second->lower = first;
-
 	*stack = second;
 }
 
@@ -45,10 +42,8 @@ void	ft_rotate(t_stack **stack)
 	while (curr->lower != NULL)
 		curr = curr->lower;
 	low = curr;
-
 	top->lower = NULL;
 	low->lower = top;
-
 }
 
 void	ft_rev_rotate(t_stack **stack)

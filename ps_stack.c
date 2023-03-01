@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   ps_stack.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:55:02 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/01 01:34:01 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:47:08 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,11 @@ int	is_sort(t_stack *stack)
 	return (1);
 }
 
-int		stack_peek(t_stack *stack)
+int		peek(t_stack *stack)
 {
 	if (!stack)
 		return (0);
 	return ((stack)->value);	
-}
-
-int	get_lower(t_stack *stack)
-{
-	t_stack *curr;
-	
-	if (!stack)
-		return (0);
-	curr = (stack)->lower;
-	if (!curr)
-		return (0);
-	return (curr->value);
 }
 
 t_stack	*new_stack_node(int value)
