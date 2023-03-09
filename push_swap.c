@@ -6,11 +6,58 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/01 23:10:30 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/09 19:40:26 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	stack_size(t_stack *node);
+
+void	visual_stack(t_stack *a, t_stack *b)
+{
+	int	size_a;
+	int	size_b;
+	int	max;
+
+	size_a = stack_size(a);
+	size_b = stack_size(b);
+
+	if (size_a > size_b)
+		max = size_a;
+	else
+		max = size_b;
+	
+	while (max)
+	{
+		if (size_b == size_a)
+		{
+			ft_printf("%d\t%d\n",a->value,b->value);
+			a = a->lower;
+			b = b->lower;
+			size_a--;
+			size_b--;
+		}
+		else if (size_b >= size_a)
+		{
+			ft_printf(" \t%d\n",b->value);
+			b = b->lower;
+			size_b--;
+		}
+		else 
+		{
+			ft_printf("%d\t\n",a->value);
+			a = a->lower;
+			size_a--;
+		}	
+		max--;
+	}
+	ft_printf("_\t_\n");
+	ft_printf("A\tB\n");
+	
+	
+
+}
 
 void    sort_int_tab(int *tab, int size)
 {
@@ -135,23 +182,19 @@ int	radix_sort(t_stack **a, t_stack **b)
 
 int main(int ac, char **av)
 {
-    t_stack *stack_a;
-    t_stack *stack_b;
+    t_stack *a;
+    t_stack *b;
 	int	count_intruction;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	init_stack(&stack_a, av);
-	put_index(stack_a);
-	display_stack(stack_a);
-	ft_printf("Stack size: %d\n",stack_size(stack_a));
-	ft_printf("is stack sort? : %d\n", is_sort(stack_a));
-	count_intruction = radix_sort(&stack_a, &stack_b);
-	ft_printf("-----After Sort---------\n");
-	ft_printf("----A----\n");
-	display_stack(stack_a);
-	ft_printf("----B----\n");
-	display_stack(stack_b);
-	ft_printf("Summary intruction is %d\n",count_intruction);
+	a = NULL;
+	b = NULL;
+	init_stack(&a, av);
+	put_index(a);
+	visual_stack(a, b);
+	sort_3(&a, &b);
+
+	//ft_push(&stack_a,&stack_b);
+	//visual_stack(stack_a , stack_b);
+
     return (0);
 }

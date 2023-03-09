@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/01 17:04:26 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/09 19:37:59 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	is_empty(t_stack **stack);
 int	st_min(t_stack *node);
 int	inserting_sort(t_stack **a, t_stack **b);
 int	radix_sort(t_stack **a, t_stack **b);
+void	sort_3(t_stack **a, t_stack **b);
 
 #endif
