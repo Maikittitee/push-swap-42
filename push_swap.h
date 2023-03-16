@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/16 15:56:39 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:06:36 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ int		ft_rotate(t_stack **stack);
 int		ft_rev_rotate(t_stack **stack);
 int		is_sort(t_stack *stack);
 int		is_empty(t_stack **stack);
-int		st_min(t_stack *node);
+int		st_min(t_stack *node); //need fix to be an index
 int		inserting_sort(t_stack **a, t_stack **b);
 int		radix_sort(t_stack **a, t_stack **b);
 int		sort_3(t_stack **a, t_stack **b);
+int	stack_size(t_stack *node);
+int	sort_5(t_stack **a, t_stack **b);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/16 15:53:11 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:07:09 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_size(t_stack *node);
+
 
 void	visual_stack(t_stack *a, t_stack *b)
 {
@@ -191,7 +191,7 @@ int main(int ac, char **av)
 	init_stack(&a, av);
 	put_index(a);
 	visual_stack(a, b);
-	count_intruction = sort_3(&a, &b);
+	count_intruction = sort_5(&a, &b);
 	//count_intruction = radix_sort(&a,&b);
 	visual_stack(a ,b);
 	ft_printf("----%d-----",count_intruction);
