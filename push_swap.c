@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/09 19:40:26 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:53:11 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ void	put_index(t_stack *stack)
 int	radix_sort(t_stack **a, t_stack **b)
 {
 	int	count;
-	unsigned char bit;
+	int bit;
 	int	size_a;
 	int	size_b;
 	int	i;
@@ -175,7 +175,7 @@ int	radix_sort(t_stack **a, t_stack **b)
 		i--;	
 		bit *= 2;
 		sort_check = is_sort(*a);
-		ft_printf("Now count is: %d\n",count);
+		//ft_printf("Now count is: %d\n",count);
 	}
 	return (count);
 }
@@ -191,10 +191,10 @@ int main(int ac, char **av)
 	init_stack(&a, av);
 	put_index(a);
 	visual_stack(a, b);
-	sort_3(&a, &b);
-
-	//ft_push(&stack_a,&stack_b);
-	//visual_stack(stack_a , stack_b);
+	count_intruction = sort_3(&a, &b);
+	//count_intruction = radix_sort(&a,&b);
+	visual_stack(a ,b);
+	ft_printf("----%d-----",count_intruction);
 
     return (0);
 }
