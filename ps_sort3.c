@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:31:35 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/16 15:58:58 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/17 09:46:20 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	sort_3(t_stack **a, t_stack **b)
 	else if (first < second && second > third && first < third)
 	{
 		count += ft_case1(a);
-		count + ft_case3(a);
+		count += ft_case3(a);
 	}
 	else if (first < second && second > third && first > third)
 		count += ft_case5(a);
