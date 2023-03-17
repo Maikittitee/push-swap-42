@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/17 13:19:13 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:15:33 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,28 +180,121 @@ int	radix_sort(t_stack **a, t_stack **b)
 	return (count);
 }
 
-int	is_err(int ac, char **av); //no alpha, no more than 2 sign, no over int range , 
+int	str_contain_alpha(char **str_arr)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (str_arr[i])
+	{
+		j = 0;
+		while (str_arr[i][j])
+		{
+			if (ft_isalpha(str_arr[i][j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+
+void	is_err(int ac, char **av) //no alpha, no more than 2 sign, no over int range ,
+{
+	if (str_contain_alpha(av))
+	{
+		ft_putstr_fd("Arguments MUST contain ONLY digits.", STDERR_FILENO);
+		exit (1);
+	}
+
+}
+int	ft_sizewhat(char **av, char c)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	count = 0;
+	i = 1;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			while (av[i][j] && av[i][j] == c)
+				j++;
+			if (av[i][j] && av[i][j] != c)
+				count++;
+			while (av[i][j] && av[i][j] != c)
+				j++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+char **ft_ultimate_split(char **av, char c)
+{
+	int	i;
+	int	j;
+	int	k;
+	char **sp;
+	char **ret;
+
+	i = 1;
+	k = 0;
+	ret = malloc(sizeof(char *) * (ft_sizewhat(av, c) + 1));
+	while (av[i])
+	{
+		j = 0;
+		sp = ft_split(av[i],c);
+		while (sp[j])
+		{
+			ret[k] = ft_strdup(sp[j]);
+			free(sp[j]);
+			j++;
+			k++;
+		}
+		//free(sp);
+		i++;
+	}
+	ret[k] = NULL;
+	return (ret);
+}
 
 int main(int ac, char **av)
 {
-    t_stack *a;
-    t_stack *b;
-	int	count_intruction;
+    // t_stack *a;
+    // t_stack *b;
+	// int	count_intruction;
+	char **argument;
 
 	if (ac < 2)
 		return (0);
-	a = NULL;
-	b = NULL;
-	init_stack(&a, av);
-	put_index(a);
-	if (is_sort(a))
-		return (0);
-	visual_stack(a, b);
-	count_intruction = sort_5(&a, &b);
-	//count_intruction = radix_sort(&a,&b);
-	ft_printf("----------\n");;
-	visual_stack(a ,b);
-	ft_printf("----%d-----",count_intruction);
+
+	argument = ft_ultimate_split(av, ' ');
+	int i = 0;
+	while (argument[i])
+	{
+		ft_printf("argument is %s\n",argument[i]);
+		i++;
+	}
+	//ft_printf("number of string is %d\n",ft_sizewhat(av,' '));
+	
+	// a = NULL;
+	// b = NULL;
+	// init_stack(&a, av);
+	// put_index(a);
+	// if (is_sort(a))
+	// 	return (0);
+	// visual_stack(a, b);
+	// count_intruction = sort_5(&a, &b);
+	// //count_intruction = radix_sort(&a,&b);
+	// ft_printf("----------\n");;
+	// visual_stack(a ,b);
+	// ft_printf("----%d-----",count_intruction);
 
     return (0);
 }
