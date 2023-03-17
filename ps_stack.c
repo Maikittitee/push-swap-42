@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:55:02 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/01 17:52:20 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/17 13:30:21 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,10 @@ int		display_stack(t_stack *stack)
 	}
 	while (stack->lower != NULL)
 	{
-		//ft_printf("Value of the node is %d | current address is %p | its lower node is %p\n",stack->value, stack, stack->lower);
 		ft_printf("Index: %d | Value: %d\n",stack->index, stack->value);
 		stack = stack->lower ;
 		i++;
 	}
-	// ft_printf("Value of the node is %d | current address is %p | its lower node is %p\n",stack->value, stack, stack->lower);
 	ft_printf("Index: %d | Value: %d\n",stack->index, stack->value);
 	return (i);
 }
