@@ -6,13 +6,14 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/18 20:09:25 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/18 20:10:47 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TODO : Repeat input;
+//  ./push_swap 1 2 LEAK
 
 void	visual_stack(t_stack *a, t_stack *b)
 {
