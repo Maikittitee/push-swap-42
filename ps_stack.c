@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:55:02 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/17 13:30:21 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/18 19:35:06 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void    init_stack(t_stack **stack, char **av)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
 		stack_add(stack, new_stack_node(ft_atoi(av[i])));

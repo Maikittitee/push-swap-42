@@ -6,13 +6,13 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/17 17:15:33 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/18 20:09:25 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
+// TODO : Repeat input;
 
 void	visual_stack(t_stack *a, t_stack *b)
 {
@@ -111,7 +111,6 @@ void	fill_arr(int *arr, t_stack *node, int len)
 		node = node->lower;
 		i++;
 	}
-	//arr[i] = -1;
 }
 
 void	put_index(t_stack *stack)
@@ -140,6 +139,7 @@ void	put_index(t_stack *stack)
 		}
 		stack = stack->lower;
 	}
+	free(arr);
 }
 
 int	radix_sort(t_stack **a, t_stack **b)
@@ -148,11 +148,10 @@ int	radix_sort(t_stack **a, t_stack **b)
 	int bit;
 	int	size_a;
 	int	size_b;
-	int	i;
 	int	boo;
 
+
 	bit = 1;
-	i = 3;
 	int	sort_check = is_sort(*a);
 	while (!sort_check)
 	{
@@ -172,15 +171,64 @@ int	radix_sort(t_stack **a, t_stack **b)
 			count += ft_push(b, a);
 			size_b--;
 		}
-		i--;	
 		bit *= 2;
 		sort_check = is_sort(*a);
-		//ft_printf("Now count is: %d\n",count);
 	}
 	return (count);
 }
 
-int	str_contain_alpha(char **str_arr)
+int ft_issign(char c)
+{
+	return (c == '+' || c == '-');
+}
+
+static int	ft_isspace(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f')
+		return (1);
+	else if (c == '\r' || c == ' ')
+		return (1);
+	return (0);
+}
+
+long	ft_strtol(const char *str)
+{
+	unsigned long	result;
+	int				ngt;
+	int				i;
+
+	i = 0;
+	result = 0;
+	ngt = 1;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] && ft_issign(str[i]))
+	{
+		if (str[i] == '-')
+			ngt = -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	if (ngt == -1 && result > 9223372036854775808ull)
+		result = 0;
+	else if (ngt == 1 && result > 9223372036854775807ull)
+		result = -1;
+	return (ngt * result);
+}
+
+int	ft_stroverint(char *str)
+{
+	long num;
+
+	num = ft_strtol(str);
+	return (num > INT_MAX || num < INT_MIN);
+}
+
+int	is_err(char **str_arr)
 {
 	int	i;
 	int	j;
@@ -189,26 +237,33 @@ int	str_contain_alpha(char **str_arr)
 	while (str_arr[i])
 	{
 		j = 0;
+	
 		while (str_arr[i][j])
 		{
 			if (ft_isalpha(str_arr[i][j]))
 				return (1);
+			if (ft_issign(str_arr[i][j]) && ft_issign(str_arr[i][j + 1]))
+				return (1);
 			j++;
 		}
+		if (ft_stroverint(str_arr[i]))
+			return (1);
 		i++;
 	}
 	return (0);
 }
 
 
-void	is_err(int ac, char **av) //no alpha, no more than 2 sign, no over int range ,
+void	check_err(int ac, char **s) //no alpha, no more than 2 sign, no over int range ,
 {
-	if (str_contain_alpha(av))
+	int	status;
+
+	status = is_err(s);
+	if (status)
 	{
-		ft_putstr_fd("Arguments MUST contain ONLY digits.", STDERR_FILENO);
+		ft_putstr_fd("Error\n",STDERR_FILENO);
 		exit (1);
 	}
-
 }
 int	ft_sizewhat(char **av, char c)
 {
@@ -257,44 +312,78 @@ char **ft_ultimate_split(char **av, char c)
 			j++;
 			k++;
 		}
-		//free(sp);
+		free(sp);
 		i++;
 	}
 	ret[k] = NULL;
 	return (ret);
 }
 
+void ft_double_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
+void ft_freestack(t_stack **s)
+{
+	t_stack *temp;
+	while (*s)
+	{
+		temp = (*s)->lower;
+		ft_printf("\n->%d<-",(*s)->value);
+		free(*s);
+		*s = temp;
+	}
+	//free(*s);
+
+}
+
 int main(int ac, char **av)
 {
-    // t_stack *a;
-    // t_stack *b;
-	// int	count_intruction;
+    t_stack *a;
+    t_stack *b;
+	int	count_intruction;
 	char **argument;
 
 	if (ac < 2)
 		return (0);
-
 	argument = ft_ultimate_split(av, ' ');
-	int i = 0;
-	while (argument[i])
+	check_err(ac, argument);
+
+	a = NULL;
+	b = NULL;
+	init_stack(&a, argument);
+	put_index(a);
+	if (is_sort(a))
 	{
-		ft_printf("argument is %s\n",argument[i]);
-		i++;
+		ft_double_free(argument);
+		ft_freestack(&a);
+		
+		return (0);
 	}
-	//ft_printf("number of string is %d\n",ft_sizewhat(av,' '));
-	
-	// a = NULL;
-	// b = NULL;
-	// init_stack(&a, av);
-	// put_index(a);
-	// if (is_sort(a))
-	// 	return (0);
-	// visual_stack(a, b);
-	// count_intruction = sort_5(&a, &b);
-	// //count_intruction = radix_sort(&a,&b);
-	// ft_printf("----------\n");;
-	// visual_stack(a ,b);
-	// ft_printf("----%d-----",count_intruction);
+	visual_stack(a, b);
+	if (stack_size(a) == 3)
+		count_intruction = sort_3(&a, &b);
+	else if (stack_size(a) == 5)
+		count_intruction = sort_5(&a, &b);
+	else {
+		//printf("000=\n");
+		count_intruction = radix_sort(&a,&b);
+	}
+	ft_printf("----------\n");;
+	visual_stack(a ,b);
+	ft_printf("----%d-----",count_intruction);
+	ft_double_free(argument);
+	ft_freestack(&a);
+
 
     return (0);
 }

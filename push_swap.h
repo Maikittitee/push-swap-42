@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/17 00:02:08 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/18 19:21:47 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "include/libft.h"
 # include "include/ft_printf.h"
+# include <limits.h>
 
 typedef struct s_stack{
     int value;
