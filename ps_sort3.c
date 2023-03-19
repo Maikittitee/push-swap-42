@@ -6,34 +6,34 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:31:35 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/17 09:46:20 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:05:22 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_case1(t_stack **a)
+int	ft_case1(t_stack **a)
 {
-	ft_swap(a);
+	ft_sa(a);
 	return (1);
 }
 
-static int	ft_case2(t_stack **a)
+int	ft_case2(t_stack **a)
 {
-	ft_swap(a);
-	ft_rev_rotate(a);
+	ft_sa(a);
+	ft_rra(a);
 	return (2);
 }
 
-static int	ft_case3(t_stack **a)
+int	ft_case3(t_stack **a)
 {
-	ft_rotate(a);
+	ft_ra(a);
 	return (1);
 }
 
-static int	ft_case5(t_stack **a)
+int	ft_case5(t_stack **a)
 {
-	ft_rev_rotate(a);
+	ft_rra(a);
 	return (1);
 }
 int	sort_3(t_stack **a, t_stack **b)
@@ -43,6 +43,7 @@ int	sort_3(t_stack **a, t_stack **b)
 	int	third;
 	int	count;
 	t_stack *runner;
+	(void)b;
 
 	runner = *a;
 

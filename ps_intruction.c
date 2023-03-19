@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:09:28 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/19 17:07:07 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:04:09 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ int	ft_sa(t_stack **a)
 
 int	ft_sb(t_stack **b)
 {
-	ft_printf("sa\n");
+	ft_printf("sb\n");
 	ft_swap(b);
 	return (1);
 }
 
 int	ft_ss(t_stack **a, t_stack **b)
 {
-	ft_printf("sa\n");
-	ft_swap(b);
+	ft_printf("ss\n");
 	ft_swap(a);
+	ft_swap(b);
 	return (1);	
 }
 
