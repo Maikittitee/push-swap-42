@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/20 00:26:09 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/20 00:39:29 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ int ft_issign(char c)
 	return (c == '+' || c == '-');
 }
 
-static int	ft_isspace(char c)
+int	ft_isspace(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v' || c == '\f')
 		return (1);
@@ -192,7 +192,7 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-long long	ft_strtol(const char *str)
+long	ft_strtol(const char *str)
 {
 	unsigned long	result;
 	int				ngt;
@@ -374,7 +374,7 @@ int main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	init_stack(&a, argument);
+	init_stack(&a, argument, ac);
 	put_index(a);
 	if (is_sort(a))
 	{
