@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/18 19:21:47 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/19 17:02:36 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,18 @@ int		st_min(t_stack *node); //need fix to be an index
 int		inserting_sort(t_stack **a, t_stack **b);
 int		radix_sort(t_stack **a, t_stack **b);
 int		sort_3(t_stack **a, t_stack **b);
-int	stack_size(t_stack *node);
-int	sort_5(t_stack **a, t_stack **b);
+int	    stack_size(t_stack *node);
+int	    sort_5(t_stack **a, t_stack **b);
+int	    ft_sa(t_stack **a);
+int	    ft_sb(t_stack **b);
+int	    ft_ss(t_stack **a, t_stack **b);
+int	    ft_pa(t_stack **a, t_stack **b);
+int	    ft_pb(t_stack **a, t_stack **b);
+int	    ft_ra(t_stack **a);
+int	    ft_rb(t_stack **b);
+int	    ft_rr(t_stack **a, t_stack **b);
+int	    ft_rra(t_stack **a);
+int	    ft_rrb(t_stack **b);
+int	    ft_rrr(t_stack **a, t_stack **b);
 
 #endif

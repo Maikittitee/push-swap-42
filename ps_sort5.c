@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:01:40 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/16 23:14:33 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/19 17:06:01 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int	sort_5(t_stack **a, t_stack **b)
 		size_a = stack_size(*a);
 		if (min_a_index < size_a / 2)
 		{
-			method = &ft_rotate;
+			method = &ft_ra;
 			times = min_a_index;
 		}
 		else
 		{
-			method = &ft_rev_rotate;
+			method = &ft_rra;
 			times = size_a - min_a_index;
 		}
 		while (times)
@@ -61,12 +61,12 @@ int	sort_5(t_stack **a, t_stack **b)
 			count += (*method)(a);
 			times--;
 		}
-		count += ft_push(a,b);
+		count += ft_pb(a,b);
 		somthing--;
 	}
 	count += sort_3(a,b);
-	ft_push(b,a);
-	ft_push(b,a);
+	ft_pa(a,b);
+	ft_pa(a,b);	
 	return (count);
 
 }

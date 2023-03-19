@@ -5,69 +5,96 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 21:31:18 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/01 16:00:33 by ktunchar         ###   ########.fr       */
+/*   Created: 2023/03/19 16:09:28 by ktunchar          #+#    #+#             */
+/*   Updated: 2023/03/19 17:07:07 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// sa sb ss pa pb ra rb rr rra rrb rrr
+
 #include "push_swap.h"
 
-int	ft_push(t_stack **src, t_stack **dst)
+int	ft_sa(t_stack **a)
 {
-	stack_add(dst, stack_pop(src));
+	ft_printf("sa\n");
+	ft_swap(a);
 	return (1);
 }
 
-int	ft_swap(t_stack **stack)
+int	ft_sb(t_stack **b)
 {
-	t_stack *first;
-	t_stack *second;
-	t_stack *temp;
-
-	first = *stack;
-	second = (*stack)->lower;
-	first->lower = second->lower;
-	second->lower = first;
-	*stack = second;	
+	ft_printf("sa\n");
+	ft_swap(b);
 	return (1);
 }
 
-int	ft_rotate(t_stack **stack)
+int	ft_ss(t_stack **a, t_stack **b)
 {
-	t_stack *top;
-	t_stack *low;
-	t_stack *curr;
+	ft_printf("sa\n");
+	ft_swap(b);
+	ft_swap(a);
+	return (1);	
+}
 
-	top = *stack;
-	curr = *stack;
-	*stack = (*stack)->lower;
-	while (curr->lower != NULL)
-		curr = curr->lower;
-	low = curr;
-	top->lower = NULL;
-	low->lower = top;
+int	ft_pa(t_stack **a, t_stack **b)
+{
+	ft_printf("pa\n");
+	ft_push(b, a);
+	return (1);	
+}
+
+int	ft_pb(t_stack **a, t_stack **b)
+{
+	ft_printf("pb\n");
+	ft_push(a, b);
+	return (1);		
+}
+
+int	ft_ra(t_stack **a)
+{
+	ft_printf("ra\n");
+	ft_rotate(a);
 	return (1);
 }
 
-int	ft_rev_rotate(t_stack **stack)
+int	ft_rb(t_stack **b)
 {
-	t_stack *top;
-	t_stack *low;
-	t_stack *before_low;
-	t_stack *curr;
-
-	top = *stack;
-	curr = *stack;
-	while (curr->lower != NULL)
-	{
-		before_low = curr;
-		curr = curr->lower;
-	}
-	low = curr;
-
-	low->lower = top;
-	before_low->lower = NULL;
-
-	*stack = low;
+	ft_printf("rb\n");
+	ft_rotate(b);
 	return (1);
+	
 }
+
+int	ft_rr(t_stack **a, t_stack **b)
+{
+	ft_printf("rr\n");
+	ft_rotate(a);
+	ft_rotate(b);
+	return (1);
+	
+}
+
+int	ft_rra(t_stack **a)
+{
+	ft_printf("rra\n");
+	ft_rev_rotate(a);
+	return (1);	
+}
+
+int	ft_rrb(t_stack **b)
+{
+	ft_printf("rrb\n");
+	ft_rev_rotate(b);
+	return (1);	
+	
+}
+
+int	ft_rrr(t_stack **a, t_stack **b)
+{
+	ft_printf("rrr\n");
+	ft_rev_rotate(a);
+	ft_rev_rotate(b);
+	return (1);	
+	
+}
+

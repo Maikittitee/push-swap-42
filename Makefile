@@ -6,7 +6,7 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:27:29 by ktunchar          #+#    #+#              #
-#    Updated: 2023/03/17 13:27:32 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/03/19 16:09:13 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS = -Wall -Werror -Wextra -g
 
 LIBS_FLAG = -LLibs -lft -lftprintf 
 
-SRCS = push_swap.c ps_stack.c ps_intruction.c ps_insert_sort.c ps_sort3.c ps_sort5.c
+SRCS = push_swap.c ps_stack.c ps_intruction.c ps_intruction_utils.c ps_insert_sort.c ps_sort3.c ps_sort5.c
 
 OBJS = $(SRCS:.c=.o)
 

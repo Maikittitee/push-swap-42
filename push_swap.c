@@ -6,14 +6,14 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/18 20:10:47 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:06:58 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// TODO : Repeat input;
-//  ./push_swap 1 2 LEAK
+// minus input got SEGV
+// Protect all intruction
 
 void	visual_stack(t_stack *a, t_stack *b)
 {
@@ -161,15 +161,15 @@ int	radix_sort(t_stack **a, t_stack **b)
 		{
 			boo = (*a)->index & bit;
 			if (boo)
-				count += ft_rotate(a);
+				count += ft_ra(a);
 			else
-				count += ft_push(a, b);
+				count += ft_pb(a, b);
 			size_a--;
 		}
 		size_b = stack_size(*b);
 		while (size_b)
 		{
-			count += ft_push(b, a);
+			count += ft_pa(b, a);
 			size_b--;
 		}
 		bit *= 2;
@@ -237,8 +237,7 @@ int	is_err(char **str_arr)
 	i = 0;
 	while (str_arr[i])
 	{
-		j = 0;
-	
+		j = 0;	
 		while (str_arr[i][j])
 		{
 			if (ft_isalpha(str_arr[i][j]))
@@ -254,13 +253,31 @@ int	is_err(char **str_arr)
 	return (0);
 }
 
-
-void	check_err(int ac, char **s) //no alpha, no more than 2 sign, no over int range ,
+int	is_repeat(char **s)
 {
-	int	status;
+	int	i;
+	int	j;
+	int curr;
+	
+	i = 0;
+	while (s[i])
+	{
+		j = i + 1;
+		curr = ft_atoi(s[i]);
+		while (s[j])
+		{
+			if (ft_atoi(s[j]) == curr)
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 
-	status = is_err(s);
-	if (status)
+void	check_err(int ac, char **s) //no alpha, no more than 2 sign, no over int range , no repeat
+{
+	if (is_repeat(s) || is_err(s))
 	{
 		ft_putstr_fd("Error\n",STDERR_FILENO);
 		exit (1);
@@ -339,13 +356,13 @@ void ft_freestack(t_stack **s)
 	while (*s)
 	{
 		temp = (*s)->lower;
-		ft_printf("\n->%d<-",(*s)->value);
 		free(*s);
 		*s = temp;
 	}
 	//free(*s);
 
 }
+
 
 int main(int ac, char **av)
 {
@@ -367,7 +384,6 @@ int main(int ac, char **av)
 	{
 		ft_double_free(argument);
 		ft_freestack(&a);
-		
 		return (0);
 	}
 	visual_stack(a, b);
@@ -379,8 +395,11 @@ int main(int ac, char **av)
 		//printf("000=\n");
 		count_intruction = radix_sort(&a,&b);
 	}
-	ft_printf("----------\n");;
+	ft_printf("-----after-----\n\n");
 	visual_stack(a ,b);
+	//display_stack(a);
+	//ft_printf("-----afterb-----\n");
+	//display_stack(b);
 	ft_printf("----%d-----",count_intruction);
 	ft_double_free(argument);
 	ft_freestack(&a);
