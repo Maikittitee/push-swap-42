@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/20 00:39:29 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/20 01:07:11 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -382,7 +382,7 @@ int main(int ac, char **av)
 		ft_freestack(&a);
 		return (0);
 	}
-//	visual_stack(a, b);
+	visual_stack(a, b);
 	if (stack_size(a) == 3)
 		count_intruction = sort_3(&a, &b);
 	else if (stack_size(a) == 5)
@@ -391,8 +391,8 @@ int main(int ac, char **av)
 		//printf("000=\n");
 		count_intruction = radix_sort(&a,&b);
 	}
-	//ft_printf("-----after-----\n\n");
-	//visual_stack(a ,b);
+	ft_printf("-----after-----\n\n");
+	visual_stack(a ,b);
 	//display_stack(a);
 	//ft_printf("-----afterb-----\n");
 	//display_stack(b);
