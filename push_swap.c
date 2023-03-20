@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/20 01:07:11 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/20 14:47:12 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,9 @@ void	put_index(t_stack *stack)
 {
 	int	*arr;
 	int	len;
-	int	i;
+	//int	i;
 
-	i = 0;
+//	i = 0;
 
 	len = stack_size(stack);
 	arr = malloc(len * sizeof(int));
@@ -367,8 +367,10 @@ int main(int ac, char **av)
 	int	count_intruction;
 	char **argument;
 
+	(void)count_intruction;
 	if (ac < 2)
 		return (0);
+	count_intruction = 0;
 	argument = ft_ultimate_split(av, ' ');
 	check_err(ac, argument);
 
@@ -382,21 +384,20 @@ int main(int ac, char **av)
 		ft_freestack(&a);
 		return (0);
 	}
-	visual_stack(a, b);
+//	visual_stack(a, b);
 	if (stack_size(a) == 3)
 		count_intruction = sort_3(&a, &b);
 	else if (stack_size(a) == 5)
 		count_intruction = sort_5(&a, &b);
 	else {
-		//printf("000=\n");
 		count_intruction = radix_sort(&a,&b);
 	}
 	ft_printf("-----after-----\n\n");
-	visual_stack(a ,b);
+//	visual_stack(a ,b);
 	//display_stack(a);
 	//ft_printf("-----afterb-----\n");
 	//display_stack(b);
-	//ft_printf("----%d-----",count_intruction);
+//	ft_printf("----%d-----",count_intruction);
 	ft_double_free(argument);
 	ft_freestack(&a);
 
