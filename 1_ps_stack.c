@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stack.c                                         :+:      :+:    :+:   */
+/*   1_ps_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:55:02 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/20 00:53:54 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/22 21:55:59 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,64 @@ int		display_stack(t_stack *stack)
 		i++;
 	}
 	ft_printf("Index: %d | Value: %d\n",stack->index, stack->value);
+	return (i);
+}
+
+void	visual_stack(t_stack *a, t_stack *b)
+{
+	int	size_a;
+	int	size_b;
+	int	max;
+
+	size_a = stack_size(a);
+	size_b = stack_size(b);
+
+	if (size_a > size_b)
+		max = size_a;
+	else
+		max = size_b;
+	
+	while (max)
+	{
+		if (size_b == size_a)
+		{
+			ft_printf("%d\t%d\n",a->value,b->value);
+			a = a->lower;
+			b = b->lower;
+			size_a--;
+			size_b--;
+		}
+		else if (size_b >= size_a)
+		{
+			ft_printf(" \t%d\n",b->value);
+			b = b->lower;
+			size_b--;
+		}
+		else 
+		{
+			ft_printf("%d\t\n",a->value);
+			a = a->lower;
+			size_a--;
+		}	
+		max--;
+	}
+	ft_printf("_\t_\n");
+	ft_printf("A\tB\n");
+	
+	
+
+}
+int	stack_size(t_stack *node)
+{
+	int	i;
+
+	i = 0;
+	if (!node)
+		return (0);
+	while (node)
+	{
+		i++;
+		node = node->lower;
+	}
 	return (i);
 }
