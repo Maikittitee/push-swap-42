@@ -6,13 +6,13 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/22 21:57:42 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/23 22:13:40 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Protect all intruction
+// TODO : CLEAN EVERY FILE -> 5 declear, 25 per line
 
 void	ft_sort(t_stack **a, t_stack **b)
 {

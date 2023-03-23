@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_sort5.c                                         :+:      :+:    :+:   */
+/*   5_ps_sort5.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:01:40 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/19 17:06:01 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/23 22:11:08 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_min(t_stack *s) //need fix to  be an index
+int	minimum_index(t_stack *node)
+{
+	int	min;
+
+	if (!node)
+		return (0);
+	min = node->index;
+	while (node)
+	{
+		if (node->value < min)
+			min = node->value;
+		node = node->lower;
+	}
+	return (min);
+}
+
+
+int	times_to_get_min(t_stack *s)
 {
 	int	index;
 	int	min;
 
-	min  = st_min(s);
+	min  = minimum_index(s);
 	index = 0;
 	while (s)
 	{
-		if (s->value == min)
+		if (s->index == min)
 		{
 			return (index);
 		}
@@ -44,7 +61,7 @@ int	sort_5(t_stack **a, t_stack **b)
 	somthing = 2;
 	while (somthing)
 	{
-		min_a_index = get_min(*a);
+		min_a_index = times_to_get_min(*a);
 		size_a = stack_size(*a);
 		if (min_a_index < size_a / 2)
 		{

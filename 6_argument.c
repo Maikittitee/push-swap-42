@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:24:55 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/22 22:17:56 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/23 22:03:18 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void ft_freestack(t_stack **s)
 
 }
 
-int	ft_sizewhat(char **av, char c)
+static int	ft_sizewhat(char **av, char c)
 {
 	int	i;
 	int	j;
