@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/23 22:13:40 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:20:54 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	argument = ft_ultimate_split(av, ' ');
-	check_err(ac, argument);
+	check_err(argument);
 	a = NULL;
 	b = NULL;
 	init_stack(&a, argument, ac);

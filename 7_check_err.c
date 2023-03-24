@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:26:29 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/22 21:29:03 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:20:46 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,11 @@ int	is_repeat(char **s)
 	return (0);
 }
 
-void	check_err(int ac, char **s)
+void	check_err(char **s)
 {
-	(void)ac;
 	if (is_repeat(s) || is_err(s))
 	{
 		ft_putstr_fd("Error\n",STDERR_FILENO);
-		exit (1);
+		exit(0);
 	}
 }
