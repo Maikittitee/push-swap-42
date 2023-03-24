@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:01:40 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/23 22:11:08 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:58:47 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	minimum_index(t_stack *node)
 	min = node->index;
 	while (node)
 	{
-		if (node->value < min)
-			min = node->value;
+		if (node->index < min)
+			min = node->index;
 		node = node->lower;
 	}
 	return (min);

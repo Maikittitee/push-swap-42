@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:55:02 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/22 21:55:59 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:25:11 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int		peek(t_stack *stack)
 
 t_stack	*new_stack_node(int value)
 {
-	// it's work don't touch it.
 	t_stack *buffer;
 
 	buffer = malloc(sizeof(t_stack));
@@ -56,15 +55,12 @@ t_stack	*new_stack_node(int value)
 
 void		stack_add(t_stack **head_stack, t_stack *new_node)
 {
-	// Now it's work, Don't touch
 	if (!*head_stack)
 		*head_stack = new_node;
 	else
 	{
 		new_node->lower = *head_stack;
 		*head_stack = new_node;	
-// 		head_stack = &new_node; 
-//		how the fuck is last 2 line are different bruh
 	}	
 }
 
@@ -148,11 +144,9 @@ void	visual_stack(t_stack *a, t_stack *b)
 		max--;
 	}
 	ft_printf("_\t_\n");
-	ft_printf("A\tB\n");
-	
-	
-
+	ft_printf("A\tB\n");	
 }
+
 int	stack_size(t_stack *node)
 {
 	int	i;
