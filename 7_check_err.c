@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:26:29 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/24 16:20:46 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/10 23:59:52 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	is_err(char **str_arr)
 		while (str_arr[i][j])
 		{
 			if (!ft_isdigit(str_arr[i][j]) && !ft_issign(str_arr[i][j]))
+				return (1);
+			if (ft_isdigit(str_arr[i][j]) && (str_arr[i][j+1] && !ft_isdigit(str_arr[i][j + 1])) && (str_arr[i][j+1] && ft_isdigit(str_arr[i][j+2])))
 				return (1);
 			if (ft_issign(str_arr[i][j]) && (!str_arr[i][j + 1] || ft_isspace(str_arr[i][j + 1]) || ft_issign(str_arr[i][j + 1])))
 				return (1);
@@ -71,7 +73,7 @@ void	check_err(char **s)
 {
 	if (is_repeat(s) || is_err(s))
 	{
-		ft_putstr_fd("Error\n",STDERR_FILENO);
+		ft_putendl_fd("Error",2);
 		exit(0);
 	}
 }
