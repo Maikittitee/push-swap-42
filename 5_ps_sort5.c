@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:01:40 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 22:58:37 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 00:26:58 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ int	choose_method(t_stack **a, int (**method)(t_stack **))
 
 void	sort_5(t_stack **a, t_stack **b)
 {
-	// int	size_a;
-	// int	min_a_index;
 	int	times;
 	int	somthing;
 	int	(*method)(t_stack **);
@@ -80,24 +78,12 @@ void	sort_5(t_stack **a, t_stack **b)
 	while (somthing)
 	{
 		times = choose_method(a, &method);
-		// min_a_index = times_to_get_min(*a);
-		// size_a = stack_size(*a);
-		// if (min_a_index < size_a / 2)
-		// {
-		// 	method = &ft_ra;
-		// 	times = min_a_index;
-		// }
-		// else
-		// {
-		// 	method = &ft_rra;
-		// 	times = size_a - min_a_index;
-		// }
 		while (times)
 		{
 			(*method)(a);
 			times--;
 		}
-		ft_pb(a,b);
+		ft_pb(a, b);
 		somthing--;
 	}
 	sort_3(a);

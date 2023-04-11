@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 22:56:53 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 00:32:04 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		times_to_get_min(t_stack *s);
 int		minimum_index(t_stack *node);
 void		sort_3(t_stack **a);
 void		sort_5(t_stack **a, t_stack **b);
-int		radix_sort(t_stack **a, t_stack **b);
+void		radix_sort(t_stack **a, t_stack **b);
 
 void	ft_double_free(char **str);
 void	ft_freestack(t_stack **s);
