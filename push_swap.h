@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/10 23:04:00 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/11 22:56:53 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int		ft_rotate(t_stack **stack);
 int		ft_rev_rotate(t_stack **stack);
 int		times_to_get_min(t_stack *s);
 int		minimum_index(t_stack *node);
-int		sort_3(t_stack **a, t_stack **b);
-int		sort_5(t_stack **a, t_stack **b);
+void		sort_3(t_stack **a);
+void		sort_5(t_stack **a, t_stack **b);
 int		radix_sort(t_stack **a, t_stack **b);
 
 void	ft_double_free(char **str);
@@ -68,6 +68,7 @@ int		is_repeat(char **s);
 void	check_err(char **s);
 int		ft_issign(char c);
 int		ft_isspace(char c);
+void	check_arg(char **av);
 
 long	ft_strtol(const char *str);
 

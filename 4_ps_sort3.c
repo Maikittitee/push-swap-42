@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:31:35 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/22 23:27:01 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/11 22:23:52 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,37 +36,32 @@ static int	ft_case5(t_stack **a)
 	ft_rra(a);
 	return (1);
 }
-int	sort_3(t_stack **a, t_stack **b)
+
+void	sort_3(t_stack **a)
 {
-	int	first;
-	int	second;
-	int	third;
-	int	count;
-	t_stack *runner;
-	(void)b;
+	int		first;
+	int		second;
+	int		third;
+	t_stack	*runner;
 
 	runner = *a;
-
 	first = runner->index;
 	runner = runner->lower;
 	second = runner-> index;
 	runner = runner->lower;
 	third = runner->index;
-	count = 0;
 	if (first > second && third > second && first < third)
-		count += ft_case1(a);
+		ft_case1(a);
 	else if (first > second && second > third && first > third)
-		count += ft_case2(a);
+		ft_case2(a);
 	else if (first > second && third > second && first > third)
-		count += ft_case3(a);
+		ft_case3(a);
 	else if (first < second && second > third && first < third)
 	{
-		count += ft_case1(a);
-		count += ft_case3(a);
+		ft_case1(a);
+		ft_case3(a);
 	}
 	else if (first < second && second > third && first > third)
-		count += ft_case5(a);
-	return (count);
-	
+		ft_case5(a);
 }
 

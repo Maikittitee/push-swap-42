@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_intruction_utils.c                              :+:      :+:    :+:   */
+/*   3_intruction_parent.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:31:18 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/20 00:02:10 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/11 22:16:27 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,22 @@ int	ft_push(t_stack **src, t_stack **dst)
 
 int	ft_swap(t_stack **stack)
 {
-	t_stack *first;
-	t_stack *second;
-	//t_stack *temp;
+	t_stack	*first;
+	t_stack	*second;
 
 	first = *stack;
 	second = (*stack)->lower;
 	first->lower = second->lower;
 	second->lower = first;
-	*stack = second;	
+	*stack = second;
 	return (1);
 }
 
 int	ft_rotate(t_stack **stack)
 {
-	t_stack *top;
-	t_stack *low;
-	t_stack *curr;
+	t_stack	*top;
+	t_stack	*low;
+	t_stack	*curr;
 
 
 	if (stack_size(*stack) == 1)
@@ -54,11 +53,11 @@ int	ft_rotate(t_stack **stack)
 
 int	ft_rev_rotate(t_stack **stack)
 {
-	t_stack *top;
-	t_stack *low;
-	t_stack *before_low;
-	t_stack *curr;
-	
+	t_stack	*top;
+	t_stack	*low;
+	t_stack	*before_low;
+	t_stack	*curr;
+
 	if (stack_size(*stack) == 1)
 		return (1);
 	top = *stack;

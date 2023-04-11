@@ -13,15 +13,23 @@
 #include "push_swap.h"
 
 
-int	ft_stroverint(char *str)
+int	str_is_over_int(char **s)
 {
-	long num;
+	long	num;
+	int		i;
 
-	num = ft_strtol(str);
-	return (num > INT_MAX || num < INT_MIN);
+	i = 0;
+	while (s[i])
+	{
+		num = ft_strtol(s[i]);
+		if (num > INT_MAX || num < INT_MIN)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int	is_err(char **str_arr)
+int	is_format_err(char **str_arr)
 {
 	int	i;
 	int	j;
@@ -34,14 +42,16 @@ int	is_err(char **str_arr)
 		{
 			if (!ft_isdigit(str_arr[i][j]) && !ft_issign(str_arr[i][j]))
 				return (1);
-			if (ft_isdigit(str_arr[i][j]) && (str_arr[i][j+1] && !ft_isdigit(str_arr[i][j + 1])) && (str_arr[i][j+1] && ft_isdigit(str_arr[i][j+2])))
+			if (ft_isdigit(str_arr[i][j]) && \
+			(str_arr[i][j + 1] && !ft_isdigit(str_arr[i][j + 1])) && \
+			(str_arr[i][j + 1] && ft_isdigit(str_arr[i][j+2])))
 				return (1);
-			if (ft_issign(str_arr[i][j]) && (!str_arr[i][j + 1] || ft_isspace(str_arr[i][j + 1]) || ft_issign(str_arr[i][j + 1])))
+			if (ft_issign(str_arr[i][j]) && \
+			(!str_arr[i][j + 1] || ft_isspace(str_arr[i][j + 1]) \
+			|| ft_issign(str_arr[i][j + 1])))
 				return (1);
 			j++;
 		}
-		if (ft_stroverint(str_arr[i]))
-			return (1);
 		i++;
 	}
 	return (0);
@@ -51,8 +61,8 @@ int	is_repeat(char **s)
 {
 	int	i;
 	int	j;
-	int curr;
-	
+	int	curr;
+
 	i = 0;
 	while (s[i])
 	{
@@ -69,11 +79,29 @@ int	is_repeat(char **s)
 	return (0);
 }
 
+void	check_arg(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (!av[i][0])
+		{
+			ft_putendl_fd("Error", 2);
+			exit(0);
+		}
+		i++;
+	}
+}
+
 void	check_err(char **s)
 {
-	if (is_repeat(s) || is_err(s))
+	if (is_repeat(s) || is_format_err(s) || str_is_over_int(s))
 	{
-		ft_putendl_fd("Error",2);
+		ft_putendl_fd("Error", 2);
 		exit(0);
 	}
 }
+
+

@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:01:40 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/24 12:58:47 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/11 22:58:37 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	minimum_index(t_stack *node)
 	return (min);
 }
 
-
 int	times_to_get_min(t_stack *s)
 {
 	int	index;
@@ -48,42 +47,60 @@ int	times_to_get_min(t_stack *s)
 	return (0);
 }
 
-int	sort_5(t_stack **a, t_stack **b)
+int	choose_method(t_stack **a, int (**method)(t_stack **))
 {
-	int	size_a;
+	int	times;
 	int	min_a_index;
-	int	count;
+	int	size_a;
+
+	min_a_index = times_to_get_min(*a);
+	size_a = stack_size(*a);
+	if (min_a_index < size_a / 2)
+	{
+		*method = &ft_ra;
+		times = min_a_index;
+	}
+	else
+	{
+		*method = &ft_rra;
+		times = size_a - min_a_index;
+	}
+	return (times);
+}
+
+void	sort_5(t_stack **a, t_stack **b)
+{
+	// int	size_a;
+	// int	min_a_index;
 	int	times;
 	int	somthing;
 	int	(*method)(t_stack **);
 
-	count = 0;
 	somthing = 2;
 	while (somthing)
 	{
-		min_a_index = times_to_get_min(*a);
-		size_a = stack_size(*a);
-		if (min_a_index < size_a / 2)
-		{
-			method = &ft_ra;
-			times = min_a_index;
-		}
-		else
-		{
-			method = &ft_rra;
-			times = size_a - min_a_index;
-		}
+		times = choose_method(a, &method);
+		// min_a_index = times_to_get_min(*a);
+		// size_a = stack_size(*a);
+		// if (min_a_index < size_a / 2)
+		// {
+		// 	method = &ft_ra;
+		// 	times = min_a_index;
+		// }
+		// else
+		// {
+		// 	method = &ft_rra;
+		// 	times = size_a - min_a_index;
+		// }
 		while (times)
 		{
-			count += (*method)(a);
+			(*method)(a);
 			times--;
 		}
-		count += ft_pb(a,b);
+		ft_pb(a,b);
 		somthing--;
 	}
-	count += sort_3(a,b);
-	ft_pa(a,b);
-	ft_pa(a,b);	
-	return (count);
-
+	sort_3(a);
+	ft_pa(a, b);
+	ft_pa(a, b);
 }

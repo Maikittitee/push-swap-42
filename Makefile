@@ -6,7 +6,7 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:27:29 by ktunchar          #+#    #+#              #
-#    Updated: 2023/04/10 23:08:57 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/04/11 22:56:22 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,21 @@ FLAGS = -Wall -Werror -Wextra -g
 LIBFT_FLAG = -LLib/libft -lft
 LIBFTPRINTF_FLAG = -LLib/libftprintf -lftprintf 
 
-SRCS = 0_push_swap.c 1_ps_stack.c 2_ps_intruction.c 3_ps_intruction_utils.c 4_ps_sort3.c 5_ps_sort5.c 6_argument.c 7_check_err.c 8_ft_strtol.c 9_radix_sort.c 10_index.c
+SRCS = 0_push_swap.c \
+		1_stack.c \
+		1_stack_checker.c \
+		2_inst_rev_rotate.c \
+		2_inst_push_rotate.c \
+		2_inst_swap.c \
+		3_intruction_parent.c \
+		4_ps_sort3.c \
+		6_argument.c \
+		8_ft_strtol.c \
+		9_radix_sort.c \
+		10_index.c \
+		5_ps_sort5.c \
+		7_check_err.c \
+		99_more_tool.c 
 
 OBJS = $(SRCS:.c=.o)
 
