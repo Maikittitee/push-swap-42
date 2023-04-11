@@ -6,7 +6,7 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:27:29 by ktunchar          #+#    #+#              #
-#    Updated: 2023/04/11 22:56:22 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/04/12 01:52:30 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS = 0_push_swap.c \
 		10_index.c \
 		5_ps_sort5.c \
 		7_check_err.c \
+		11_free.c \
 		99_more_tool.c 
 
 OBJS = $(SRCS:.c=.o)

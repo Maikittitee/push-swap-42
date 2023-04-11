@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/12 00:32:04 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:53:19 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void		radix_sort(t_stack **a, t_stack **b);
 
 void	ft_double_free(char **str);
 void	ft_freestack(t_stack **s);
+void	ft_double_free_til_index(char **s, int j);
 
 char	**ft_ultimate_split(char **av, char c);
 int		ft_stroverint(char *str);

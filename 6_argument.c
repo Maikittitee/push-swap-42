@@ -6,39 +6,13 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:24:55 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/23 22:03:18 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 02:10:31 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void ft_double_free(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
-
-void ft_freestack(t_stack **s)
-{
-	t_stack *temp;
-	while (*s)
-	{
-		temp = (*s)->lower;
-		free(*s);
-		*s = temp;
-	}
-
-}
-
-static int	ft_sizewhat(char **av, char c)
+static int	ultimate_count_word(char **av, char c)
 {
 	int	i;
 	int	j;
@@ -63,30 +37,28 @@ static int	ft_sizewhat(char **av, char c)
 	return (count);
 }
 
-char **ft_ultimate_split(char **av, char c)
+char	**ft_ultimate_split(char **av, char c)
 {
-	int	i;
-	int	j;
-	int	k;
-	char **sp;
-	char **ret;
+	int		i;
+	int		j;
+	int		k;
+	char	**sp;
+	char	**ret;
 
 	i = 1;
 	k = 0;
-	ret = malloc(sizeof(char *) * (ft_sizewhat(av, c) + 1));
+	ret = malloc(sizeof(char *) * (ultimate_count_word(av, c) + 1));
 	while (av[i])
 	{
 		j = 0;
-		sp = ft_split(av[i],c);
+		sp = ft_split(av[i++], c);
 		while (sp[j])
 		{
 			ret[k] = ft_strdup(sp[j]);
-			free(sp[j]);
-			j++;
+			free(sp[j++]);
 			k++;
 		}
 		free(sp);
-		i++;
 	}
 	ret[k] = NULL;
 	return (ret);

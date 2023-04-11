@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:01:40 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/12 00:26:58 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:02:05 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	times_to_get_min(t_stack *s)
 	int	index;
 	int	min;
 
-	min  = minimum_index(s);
+	min = minimum_index(s);
 	index = 0;
 	while (s)
 	{
