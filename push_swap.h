@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/12 17:38:37 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:53:52 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct s_stack{
 	int				index;
 	struct s_stack	*lower;
 }	t_stack;
+
+typedef struct s_ijk{
+	int	i;
+	int	j;
+	int	k;
+}	t_ijk;
 
 void	ft_sort(t_stack **a, t_stack **b);
 void	sort_int_tab(int *tab, int size);

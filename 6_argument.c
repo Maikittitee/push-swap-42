@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:24:55 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/12 17:37:12 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:53:39 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,37 @@ int	ultimate_count_word(char **av, char c)
 	return (count);
 }
 
+static void	init_ik(t_ijk *some)
+{
+	some->i = 1;
+	some->k = 0;
+}
+
 char	**ft_ultimate_split(char **av, char c)
 {
-	int		i;
-	int		j;
-	int		k;
+	t_ijk	index;
 	char	**sp;
 	char	**ret;
 
-	i = 1;
-	k = 0;
-	ret = malloc(sizeof(char *) * (ultimate_count_word(av, c) + 1));
-	while (av[i])
+	init_ik(&index);
+	ret = ft_calloc(sizeof(char *), (ultimate_count_word(av, c) + 1));
+	if (!ret)
+		return (NULL);
+	while (av[index.i])
 	{
-		j = 0;
-		sp = ft_split(av[i++], c);
-		while (sp[j])
+		index.j = 0;
+		sp = ft_split(av[(index.i)++], c);
+		while (sp[index.j])
 		{
-			ret[k++] = ft_strdup(sp[j]);
-			free(sp[j++]);
+			ret[index.k] = ft_strdup(sp[index.j]);
+			free(sp[(index.j)++]);
+			if (!ret[(index.k)++])
+			{
+				ft_double_free_til_index(ret, index.k);
+				return (NULL);
+			}
 		}
 		free(sp);
 	}
-	ret[k] = NULL;
 	return (ret);
 }
