@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inst_push_rotate.c                                 :+:      :+:    :+:   */
+/*   2_inst_push_rotate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 22:11:50 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 22:12:54 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:38:06 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_pa(t_stack **a, t_stack **b)
 
 int	ft_pb(t_stack **a, t_stack **b)
 {
-	ft_putendl_fd("pb",1);
+	ft_putendl_fd("pb", 1);
 	ft_push(a, b);
 	return (1);
 }

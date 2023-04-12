@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:35:54 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/12 01:35:56 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:30:17 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_double_free_til_index(char **s, int j)
 		free(s[i]);
 	}
 	free(s);
-
 }
 
 void	ft_double_free(char **str)
@@ -48,5 +47,4 @@ void	ft_freestack(t_stack **s)
 		free(*s);
 		*s = temp;
 	}
-
 }

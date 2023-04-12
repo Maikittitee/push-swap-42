@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:54:42 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/12 00:39:28 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:44:31 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	radix_sort(t_stack **a, t_stack **b)
 	int	size_a;
 	int	size_b;
 	int	bit;
-
 
 	bit = 1;
 	while (!is_sort(*a))

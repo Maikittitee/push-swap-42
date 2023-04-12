@@ -6,13 +6,13 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:28:03 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/23 22:12:08 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:39:49 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_issign(char c)
+int	ft_issign(char c)
 {
 	return (c == '+' || c == '-');
 }

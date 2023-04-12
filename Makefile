@@ -6,7 +6,7 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:27:29 by ktunchar          #+#    #+#              #
-#    Updated: 2023/04/12 01:52:30 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/04/12 16:15:24 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,11 @@ CC = gcc
 
 FLAGS = -Wall -Werror -Wextra -g
 
+LIBFT_PATH = Lib/libft
+PRINTF_PATH = Lib/libftprintf 
+
 LIBFT_FLAG = -LLib/libft -lft
-LIBFTPRINTF_FLAG = -LLib/libftprintf -lftprintf 
+PRINTF_FLAG = -LLib/libftprintf -lftprintf 
 
 SRCS = 0_push_swap.c \
 		1_stack.c \
@@ -38,13 +41,13 @@ SRCS = 0_push_swap.c \
 
 OBJS = $(SRCS:.c=.o)
 
-all: libftprintf libft $(NAME)
+all: $(LIBFT) $(LIBFTPRINTF) $(NAME)
 
-libft : 
-	make -C Lib/libft
+$(LIBFT) : 
+	$(MAKE) -C $(LIBFT_PATH)
 
-libftprintf:
-	make -C Lib/libftprintf
+$(LIBFTPRINTF):
+	$(MAKE) -C $(PRINTF_PATH)
 
 %.o:%.c
 	$(CC) $(FLAGS) -c $< -o $@
@@ -53,7 +56,7 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(LIBFT_FLAG) $(LIBFTPRINTF_FLAG) $(OBJS) -o $(NAME)
 
 clean:
-	rm -rf $(OBJS) Lib/libft/*.o Lib/libftprintf/*.o
+	rm -rf $(OBJS) $(LIBFT_PATH)/*.o $(PRINTF_PATH)*.o
 
 fclean: clean
 	rm -rf $(NAME) Lib/libft/*.a Lib/libftprintf/*.a

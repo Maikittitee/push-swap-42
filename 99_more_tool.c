@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 20:43:09 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 20:44:00 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:43:36 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	visual_stack(t_stack *a, t_stack *b)
 		max--;
 	}
 	ft_printf("_\t_\n");
-	ft_printf("A\tB\n");	
+	ft_printf("A\tB");
+	ft_printf("\n");
 }

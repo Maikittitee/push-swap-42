@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1_ps_stack.c                                       :+:      :+:    :+:   */
+/*   1_stack.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:55:02 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 20:46:59 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:30:46 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_stack	*new_stack_node(int value)
 	buffer = malloc(sizeof(t_stack));
 	buffer->value = value;
 	buffer->lower = NULL;
-
 	return (buffer);
 }
 
@@ -41,7 +40,6 @@ t_stack	*stack_pop(t_stack **head_stack)
 	temp = *head_stack;
 	*head_stack = (*head_stack)->lower;
 	temp->lower = NULL;
-
 	return (temp);
 }
 

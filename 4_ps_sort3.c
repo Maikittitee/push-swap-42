@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:31:35 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 22:23:52 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:41:28 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,3 @@ void	sort_3(t_stack **a)
 	else if (first < second && second > third && first > third)
 		ft_case5(a);
 }
-

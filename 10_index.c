@@ -6,14 +6,13 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:57:22 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/03/22 21:57:31 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:29:48 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void    sort_int_tab(int *tab, int size)
+void	sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -56,23 +55,21 @@ void	put_index(t_stack *stack)
 {
 	int	*arr;
 	int	len;
-	//int	i;
-
-//	i = 0;
+	int	j;
 
 	len = stack_size(stack);
 	arr = malloc(len * sizeof(int));
-	fill_arr(arr, stack,len);
+	fill_arr(arr, stack, len);
 	sort_int_tab(arr, len);
 	while (stack)
 	{
-		int	j = 0;
+		j = 0;
 		while (j < len)
 		{
 			if (stack->value == arr[j])
 			{
 				stack->index = j + 1;
-				break;
+				break ;
 			}
 			j++;
 		}

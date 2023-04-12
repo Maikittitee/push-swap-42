@@ -6,12 +6,11 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:26:29 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/10 23:59:52 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:43:21 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	str_is_over_int(char **s)
 {
@@ -37,14 +36,14 @@ int	is_format_err(char **str_arr)
 	i = 0;
 	while (str_arr[i])
 	{
-		j = 0;	
+		j = 0;
 		while (str_arr[i][j])
 		{
 			if (!ft_isdigit(str_arr[i][j]) && !ft_issign(str_arr[i][j]))
 				return (1);
 			if (ft_isdigit(str_arr[i][j]) && \
 			(str_arr[i][j + 1] && !ft_isdigit(str_arr[i][j + 1])) && \
-			(str_arr[i][j + 1] && ft_isdigit(str_arr[i][j+2])))
+			(str_arr[i][j + 1] && ft_isdigit(str_arr[i][j + 2])))
 				return (1);
 			if (ft_issign(str_arr[i][j]) && \
 			(!str_arr[i][j + 1] || ft_isspace(str_arr[i][j + 1]) \
@@ -103,5 +102,3 @@ void	check_err(char **s)
 		exit(0);
 	}
 }
-
-

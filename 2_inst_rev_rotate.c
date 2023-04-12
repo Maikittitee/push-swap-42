@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:09:28 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 22:12:41 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:40:15 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ int	ft_rrr(t_stack **a, t_stack **b)
 	ft_rev_rotate(b);
 	return (1);
 }
-

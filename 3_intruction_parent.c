@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:31:18 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 22:16:27 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:41:13 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	ft_rotate(t_stack **stack)
 	t_stack	*top;
 	t_stack	*low;
 	t_stack	*curr;
-
 
 	if (stack_size(*stack) == 1)
 		return (1);
@@ -68,10 +67,8 @@ int	ft_rev_rotate(t_stack **stack)
 		curr = curr->lower;
 	}
 	low = curr;
-
 	low->lower = top;
 	before_low->lower = NULL;
-
 	*stack = low;
 	return (1);
 }
