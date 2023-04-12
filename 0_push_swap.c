@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/11 22:59:05 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:36:22 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	main(int ac, char **av)
 	check_err(argument);
 	a = NULL;
 	b = NULL;
-	init_stack(&a, argument, ac);
-	ft_double_free(argument);
+	init_stack(&a, argument, ultimate_count_word(av, ' '));
 	put_index(a);
 	if (!is_sort(a))
 		ft_sort(&a, &b);
+	ft_double_free(argument);
 	ft_freestack(&a);
 	return (0);
 }

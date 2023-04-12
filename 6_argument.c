@@ -6,13 +6,13 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:24:55 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/12 02:10:31 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:37:12 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ultimate_count_word(char **av, char c)
+int	ultimate_count_word(char **av, char c)
 {
 	int	i;
 	int	j;
@@ -54,9 +54,8 @@ char	**ft_ultimate_split(char **av, char c)
 		sp = ft_split(av[i++], c);
 		while (sp[j])
 		{
-			ret[k] = ft_strdup(sp[j]);
+			ret[k++] = ft_strdup(sp[j]);
 			free(sp[j++]);
-			k++;
 		}
 		free(sp);
 	}

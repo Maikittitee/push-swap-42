@@ -6,7 +6,7 @@
 #    By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 13:27:29 by ktunchar          #+#    #+#              #
-#    Updated: 2023/04/12 16:15:24 by ktunchar         ###   ########.fr        #
+#    Updated: 2023/04/12 17:31:30 by ktunchar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ PRINTF_PATH = Lib/libftprintf
 
 LIBFT_FLAG = -LLib/libft -lft
 PRINTF_FLAG = -LLib/libftprintf -lftprintf 
+
+LIBFT = $(LIBFT_PATH)/libft.a
+PRINTF = $(PRINTF_PATH)/libftprintf.a
 
 SRCS = 0_push_swap.c \
 		1_stack.c \
@@ -41,25 +44,25 @@ SRCS = 0_push_swap.c \
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(LIBFT) $(LIBFTPRINTF) $(NAME)
+all: $(LIBFT) $(PRINTF) $(NAME)
 
-$(LIBFT) : 
-	$(MAKE) -C $(LIBFT_PATH)
+$(LIBFT): 
+	make -C $(LIBFT_PATH)
 
-$(LIBFTPRINTF):
-	$(MAKE) -C $(PRINTF_PATH)
+$(PRINTF):
+	make -C $(PRINTF_PATH)
 
 %.o:%.c
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(LIBFT_FLAG) $(LIBFTPRINTF_FLAG) $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) $(LIBFT_FLAG) $(PRINTF_FLAG) $(OBJS) -o $(NAME)
 
 clean:
-	rm -rf $(OBJS) $(LIBFT_PATH)/*.o $(PRINTF_PATH)*.o
+	rm -rf $(OBJS) $(LIBFT_PATH)/*.o Lib/libftprintf/*.o
 
 fclean: clean
-	rm -rf $(NAME) Lib/libft/*.a Lib/libftprintf/*.a
+	rm -rf $(NAME) $(LIBFT_PATH)/*.a Lib/libftprintf/*.a
 
 re: fclean all
 
