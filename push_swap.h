@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/12 17:53:52 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/16 23:07:56 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int		ft_isspace(char c);
 void	check_arg(char **av);
 
 long	ft_strtol(const char *str);
+int	ft_isspaces(char *av);
 
 #endif
