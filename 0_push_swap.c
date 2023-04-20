@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:15:44 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/16 22:41:53 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:06:20 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,9 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac < 2)
 		return (0);
-	check_arg(av);
+	check_av(av);
 	argument = ft_ultimate_split(av, ' ');
-	// while (*argument)
-	// {
-	// 	printf("->%s\n", *argument);
-	// 	argument++;
-	// }
-	check_err(argument);
+	check_before_stack(argument);
 	a = NULL;
 	b = NULL;
 	init_stack(&a, argument, ultimate_count_word(av, ' '));

@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/16 23:07:56 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:06:06 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,13 @@ char	**ft_ultimate_split(char **av, char c);
 int		ft_stroverint(char *str);
 int		is_err(char **str_arr);
 int		is_repeat(char **s);
-void	check_err(char **s);
+void	check_before_stack(char **s);
 int		ft_issign(char c);
 int		ft_isspace(char c);
-void	check_arg(char **av);
+void	check_av(char **av);
 
 long	ft_strtol(const char *str);
 int	ft_isspaces(char *av);
+int	start_wzero(char *str);
 
 #endif

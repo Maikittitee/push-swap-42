@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:26:29 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/16 23:12:44 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:07:04 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,14 @@ int	is_repeat(char **s)
 	return (0);
 }
 
-void	check_arg(char **av)
+void	check_av(char **av)
 {
 	int	i;
 
 	i = 0;
 	while (av[i])
 	{
-		if (!av[i][0] || ft_isspaces(av[i]))
+		if (!av[i][0] || ft_isspaces(av[i]) || start_wzero(av[i]))
 		{
 			ft_putendl_fd("Error", 2);
 			exit(0);
@@ -94,11 +94,23 @@ void	check_arg(char **av)
 	}
 }
 
-void	check_err(char **s)
+void	check_before_stack(char **s)
 {
+	int i;
+
+	i = 0;
 	if (!s || !(*s) || is_repeat(s) || is_format_err(s) || str_is_over_int(s))
 	{
 		ft_putendl_fd("Error", 2);
 		exit(0);
+	}
+	while (s[i])
+	{
+		if (start_wzero(s[i]))
+		{
+			ft_putendl_fd("Error", 2);
+			exit(0);
+		}
+		i++;
 	}
 }

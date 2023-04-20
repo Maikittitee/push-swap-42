@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:24:55 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/16 23:12:32 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:07:37 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,20 @@ int	ft_isspaces(char *av)
 		av++;
 	}
 	return (1);
+}
+
+int	start_wzero(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (ft_isspace(str[i]))
+		i++;
+	if (ft_issign(str[i]))
+		i++;
+	if ((ft_issign(str[i]) || str[i] == '0') && ft_strlen(str + i) > 1)
+		return (1);
+	return (0);
 }
