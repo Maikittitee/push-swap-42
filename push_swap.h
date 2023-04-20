@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:13:08 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/20 15:06:06 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:19:29 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,8 @@ void	check_before_stack(char **s);
 int		ft_issign(char c);
 int		ft_isspace(char c);
 void	check_av(char **av);
-
 long	ft_strtol(const char *str);
-int	ft_isspaces(char *av);
-int	start_wzero(char *str);
+int		ft_isspaces(char *av);
+int		start_wzero(char *str);
 
 #endif

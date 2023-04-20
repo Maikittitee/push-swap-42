@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:26:29 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/20 15:07:04 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:35:15 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	check_av(char **av)
 
 void	check_before_stack(char **s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s || !(*s) || is_repeat(s) || is_format_err(s) || str_is_over_int(s))
