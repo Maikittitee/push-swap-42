@@ -6,7 +6,7 @@
 /*   By: ktunchar <ktunchar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:26:29 by ktunchar          #+#    #+#             */
-/*   Updated: 2023/04/20 15:35:15 by ktunchar         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:43:42 by ktunchar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	check_av(char **av)
 	i = 0;
 	while (av[i])
 	{
-		if (!av[i][0] || ft_isspaces(av[i]) || start_wzero(av[i]))
+		if (!av[i][0] || ft_isspaces(av[i]))
 		{
 			ft_putendl_fd("Error", 2);
 			exit(0);
